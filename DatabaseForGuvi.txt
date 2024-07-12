@@ -1,0 +1,84 @@
+ #Create Students table
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20),
+    date_of_birth DATE
+);
+
+#Create Courses table
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(100),
+    description TEXT,
+    duration INT,
+    start_date DATE,
+    end_date DATE
+);
+
+#Create Instructors table
+CREATE TABLE Instructors (
+    instructor_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20)
+);
+
+#Create Enrollments table
+CREATE TABLE Enrollments (
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    status VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+#Create Classes table
+CREATE TABLE Classes (
+    class_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_id INT,
+    instructor_id INT,
+    class_date DATE,
+    start_time TIME,
+    end_time TIME,
+    location VARCHAR(100),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id),
+    FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
+);
+
+#Create Assignments table
+CREATE TABLE Assignments (
+    assignment_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_id INT,
+    title VARCHAR(100),
+    description TEXT,
+    due_date DATE,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+#Create Grades table
+CREATE TABLE Grades (
+    grade_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    assignment_id INT,
+    grade DECIMAL(5,2),
+    graded_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (assignment_id) REFERENCES Assignments(assignment_id)
+);
+
+#Create Attendance table
+CREATE TABLE Attendance (
+    attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+    class_id INT,
+    student_id INT,
+    attendance_date DATE,
+    status VARCHAR(20),
+    FOREIGN KEY (class_id) REFERENCES Classes(class_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id)
+);

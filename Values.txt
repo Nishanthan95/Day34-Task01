@@ -1,0 +1,54 @@
+#Insert into Students
+INSERT INTO Students (first_name, last_name, email, phone_number, date_of_birth) VALUES
+('Nishan', 'Gopal', 'nishan@gmail.com', '0778584585', '1995-11-02'),
+('Ram', 'Nishanth', 'ram@gmail.com', '0785698542', '1994-04-25'),
+('Suresh', 'Varma', 'suresh@gmail.com', '0779654565', '1996-07-30');
+
+#Insert into Courses
+INSERT INTO Courses (course_name, description, duration, start_date, end_date) VALUES
+('Introduction to Programming', 'Learn the basics of programming using Python.', 30, '2024-07-01', '2024-07-30'),
+('Data Science', 'An in-depth course on data science and machine learning.', 45, '2024-08-01', '2024-09-14'),
+('Web Development', 'Learning MERN stack development.', 40, '2024-07-15', '2024-08-24');
+
+#Insert into Instructors
+INSERT INTO Instructors (first_name, last_name, email, phone_number) VALUES
+('Venkat', 'kumar', 'venkat@gmail.com', '9856247854'),
+('Gobi', 'chandran', 'gobi@gmail.com', '7845963581'),
+('kannan', 'Tharun', 'kannan@gmail.com', '7896154863');
+
+#Insert into Enrollments
+INSERT INTO Enrollments (student_id, course_id, enrollment_date, status) VALUES
+(1, 1, '2024-06-20', 'Active'),
+(2, 1, '2024-06-21', 'Active'),
+(3, 2, '2024-07-01', 'Active'),
+(1, 3, '2024-07-05', 'Active');
+
+#Insert into Classes
+INSERT INTO Classes (course_id, instructor_id, class_date, start_time, end_time, location) VALUES
+(1, 1, '2024-07-02', '10:00', '12:00', 'Room 101'),
+(1, 1, '2024-07-04', '10:00', '12:00', 'Room 101'),
+(2, 2, '2024-08-02', '14:00', '16:00', 'Room 202'),
+(2, 2, '2024-08-05', '14:00', '16:00', 'Room 202'),
+(3, 3, '2024-07-16', '09:00', '11:00', 'Room 303'),
+(3, 3, '2024-07-18', '09:00', '11:00', 'Room 303');
+
+
+#ert into Assignments
+INSERT INTO Assignments (course_id, title, description, due_date) VALUES
+(1, 'Python Basics', 'Complete the Python basics assignment.', '2024-07-10'),
+(2, 'Data Analysis', 'Analyze the given dataset.', '2024-08-15'),
+(3, 'Website Layout', 'Create a layout for a website.', '2024-07-20');
+
+#Insert into Grades
+INSERT INTO Grades (student_id, assignment_id, grade, graded_date) VALUES
+(1, 1, 85.5, '2024-07-12'),
+(2, 1, 90.0, '2024-07-12'),
+(3, 2, 88.0, '2024-08-18'),
+(1, 3, 92.0, '2024-07-22');
+
+#Insert into Attendance
+INSERT INTO Attendance (class_id, student_id, attendance_date, status) VALUES
+(1, 1, '2024-07-02', 'Present'),
+(1, 2, '2024-07-02', 'Absent'),
+(2, 3, '2024-08-02', 'Present'),
+(3, 1, '2024-07-16', 'Late');
